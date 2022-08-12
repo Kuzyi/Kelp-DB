@@ -1,0 +1,30 @@
+{
+  "name": "kelp-db",
+  "version": "1.0.0",
+  "description": "## Date: 08/11/2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kuzyi/Kelp-DB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kuzyi/Kelp-DB/issues"
+  },
+  "homepage": "https://github.com/Kuzyi/Kelp-DB#readme",
+  "dependencies": {
+    "@ngneat/falso": "^6.1.0",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "pg": "^8.7.3",
+    "sequelize": "^6.21.3"
+  }
+}
