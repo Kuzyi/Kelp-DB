@@ -9,6 +9,41 @@ const getAllUsers = async (req, res) => {
   }
 }
 
+const createUser = async (req, res) => {
+  try {
+    let userBody = await User.create(req.body)
+    res.send(userBody)
+  } catch (error) {
+    throw error
+  }
+}
+
+const updateUser = async (req, res) => {
+  try {
+    let userId = parseInt(req.params.userId)
+    let userBody = await User.update(req.body, {
+      where: { id: userId },
+      returning: true
+    })
+    res.send(userBody)
+  } catch (error) {
+    throw error
+  }
+}
+
+const deleteUser = async (req, res) => {
+  try {
+    let userId = parseInt(req.params.userId)
+    await User.destroy({ where: { id: userId } })
+    res.send({ message: `Deleted user with an id of ${userId}` })
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
-  getAllUsers
+  getAllUsers,
+  createUser,
+  updateUser,
+  deleteUser
 }
