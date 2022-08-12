@@ -11,7 +11,7 @@ const findAllLocations = async (req, res) => {
 
 const findALocation = async (req, res) => {
   try {
-    let location = await Location.findByPk(req.params.id)
+    let location = await Location.findByPk(req.params.locationId)
     res.send(location)
   } catch (error) {
     throw error
