@@ -20,6 +20,12 @@ const createUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
+    let userId = parseInt(req.params.userId)
+    let userBody = await User.update(req.body, {
+      where: { id: userId },
+      returning: true
+    })
+    res.send(userBody)
   } catch (error) {
     throw error
   }
