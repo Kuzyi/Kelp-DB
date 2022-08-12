@@ -9,6 +9,32 @@ const getAllUsers = async (req, res) => {
   }
 }
 
+const createUser = async (req, res) => {
+  try {
+    let userBody = await User.create(req.body)
+    res.send(userBody)
+  } catch (error) {
+    throw error
+  }
+}
+
+const updateUser = async (req, res) => {
+  try {
+  } catch (error) {
+    throw error
+  }
+}
+
+const deleteUser = async (req, res) => {
+  try {
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
-  getAllUsers
+  getAllUsers,
+  createUser,
+  updateUser,
+  deleteUser
 }
