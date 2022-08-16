@@ -9,6 +9,18 @@ const findAllComments = async (req, res) => {
   }
 }
 
+const findCommentsByLocation = async (req, res) => {
+  try {
+    let id = parseInt(req.body.id)
+    let comments = Comment.findAll({
+      where: { locationId: id }
+    })
+    res.send(comments)
+  } catch (error) {
+    throw error
+  }
+}
+
 const createComment = async (req, res) => {
   try {
     let locationId = parseInt(req.body.locationId)
@@ -51,5 +63,6 @@ module.exports = {
   findAllComments,
   createComment,
   updateComment,
-  deleteComment
+  deleteComment,
+  findCommentsByLocation
 }
