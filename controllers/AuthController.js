@@ -36,7 +36,9 @@ const Register = async (req, res) => {
 }
 
 const CheckSession = async (req, res) => {
-  const { payload } = res.locals
+  const payload = res.locals
+  console.log('this is the locals', payload)
+  console.log('this is res.locals', res.locals)
   res.send(payload)
 }
 
