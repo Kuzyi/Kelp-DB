@@ -2,7 +2,7 @@ const { Comment, Location, User } = require('../models')
 
 const findAllComments = async (req, res) => {
   try {
-    let comments = Comment.findAll()
+    let comments = await Comment.findAll()
     res.send(comments)
   } catch (error) {
     throw error
@@ -12,20 +12,10 @@ const findAllComments = async (req, res) => {
 const findCommentsByLocation = async (req, res) => {
   try {
     let locationId = parseInt(req.params.locationId)
-    let userId = parseInt(req.params.userId)
-    let comments = Comment.findAll({
+    let comments = await Comment.findAll({
       where: { locationId: locationId },
       include: [{ model: User }]
     })
-    res.send(comments)
-  } catch (error) {
-    throw error
-  }
-}
-
-const findAComment = async (req, res) => {
-  try {
-    let comments = await Comment.findByPk(req.params.CommentId)
     res.send(comments)
   } catch (error) {
     throw error
@@ -75,6 +65,5 @@ module.exports = {
   createComment,
   updateComment,
   deleteComment,
-  findCommentsByLocation,
-  findAComment
+  findCommentsByLocation
 }
