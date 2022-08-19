@@ -9,6 +9,16 @@ const getAllUsers = async (req, res) => {
   }
 }
 
+const getOneUser = async (req, res) => {
+  try {
+    let userId = parseInt(req.params.userId)
+    let user = await User.findByPk(userId)
+    res.send(user)
+  } catch (error) {
+    throw error
+  }
+}
+
 const createUser = async (req, res) => {
   try {
     let userBody = await User.create(req.body)
@@ -45,5 +55,6 @@ module.exports = {
   getAllUsers,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  getOneUser
 }
